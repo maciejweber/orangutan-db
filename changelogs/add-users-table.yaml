@@ -1,17 +1,14 @@
 databaseChangeLog:
   - changeSet:
       id: 1
-      author: your.name
+      author: maciek
       changes:
         - createTable:
-            tableName: test_table
+            tableName: users
             columns:
               - column:
-                  name: test_id
+                  name: id
                   type: INT
                   constraints:
                     primaryKey: true
                     nullable: false
-              - column:
-                  name: test_column
-                  type: INT
