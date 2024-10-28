@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: 13
+      id: 3
       author: kacper
       changes:
         - createTable:
-            tableName: users
+            tableName: advgrp
             columns:
               - column:
                   name: id
@@ -14,47 +14,35 @@ databaseChangeLog:
                     nullable: false
                   comment: "ID, PK w tej tabeli, wrzucony index"
               - column:
-                  name: clntno
-                  type: INT
+                  name: advgshort
+                  type: varchar(8)
                   constraints:
                     nullable: false
-                  comment: "Numer klienta, wrzucony index"
+                  comment: "Skrócona nazwa grupy np. początkujący - POCZ"
+              - column:
+                  name: advgname
+                  type: varchar(30)
+                  constraints:
+                    nullable: false
+                  comment: "Pełna nazwa grupy"
               - column:
                   name: status
                   type: char(1)
                   constraints:
                     nullable: false
-                  comment: "Status. Używany do określania i łatwiejszego wyszukiwania. Przykładowe statusy I - inactive, A - active, D - deleted"
-			  - column:
-                  name: login
-                  type: varchar(30)
-                  constraints:
-                    nullable: false
-                  comment: "Login użytkownika"
-			  - column:
-                  name: passwd
-                  type: varchar(30)
-                  constraints:
-                    nullable: false
-                  comment: "Hasło użytkownika"
-			  - column
-				  name: sex
-				  type: char(1)
-				  constraints:
-				    nullable: false
-				  comment: "Płeć"
-			  - column:
+                  comment: "Status grupy. Używany do określania i łatwiejszego wyszukiwania. Przykładowe statusy I - inactive, A - active, D - deleted"
+              - column:
                   name: updstmp
                   type: date
                   constraints:
                     nullable: false
-                  comment: "Data kiedy był zrobiony ostatni update na tym wierszu. Wrzucony trigger trg_update_updstmp_users"
+                  comment: "Data kiedy był zrobiony ostatni update na tym wierszu. Wrzucony trigger trg_update_updstmp_advgrp"
               - column:
                   name: insstmp
                   type: date
                   constraints:
                     nullable: false
-                  comment: "Data kiedy powstał wpis. Wrzucony trigger trg_insert_insstmp_users"
+                  comment: "Data kiedy powstał wpis. Wrzucony trigger trg_insert_insstmp_advgrp"
               - column:
                   name: addtxt1
                   type: varchar(35)
@@ -63,48 +51,37 @@ databaseChangeLog:
                   comment: "Kolumna rozwojowa, obecnie pusta"
 
   - changeSet:
-      id: 14
+      id: 4
       author: kacper
       changes:
         - sql:
             comment: "Trigger aktualizujący kolumnę updstmp przy aktualizacji"
             sql: |
-              CREATE OR REPLACE TRIGGER trg_update_updstmp_users
-              BEFORE UPDATE ON users
+              CREATE OR REPLACE TRIGGER trg_update_updstmp_advgrp
+              BEFORE UPDATE ON advgrp
               FOR EACH ROW
               EXECUTE FUNCTION update_updstmp();
 
   - changeSet:
-      id: 15
+      id: 5
       author: kacper
       changes:
         - sql:
             comment: "Trigger ustawiający kolumnę insstmp przy wstawieniu nowego wiersza"
             sql: |
-              CREATE OR REPLACE TRIGGER trg_insert_insstmp_users
-              BEFORE INSERT ON users
+              CREATE OR REPLACE TRIGGER trg_insert_insstmp_advgrp
+              BEFORE INSERT ON advgrp
               FOR EACH ROW
               EXECUTE FUNCTION insert_insstmp();
 			  
   - changeSet:
-      id: 16
+      id: 6
       author: kacper
       changes:
         - createIndex:
-            indexName: users_k1
-            tableName: users
+            indexName: advgrp_k1
+            tableName: advgrp
             unique: true
             columns:
               - column:
                   name: id
-
-  - changeSet:
-      id: 17
-      author: kacper
-      changes:
-        - createIndex:
-            indexName: users_k2
-            tableName: users
-            columns:
-              - column:
-                  name: clntno
