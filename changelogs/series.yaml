@@ -1,0 +1,64 @@
+databaseChangeLog:
+- changeSet:
+      id: 29
+      author: kacper
+      changes:
+        - createTable:
+            tableName: series
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  comment: "ID, PK, dodany autoincrement" 
+              - column:
+                  name: exerciseid
+                  type: INT
+                  constraints:
+                    nullable: false
+                  comment: "ID z tabeli exercises" 
+              - column:
+                  name: trainingid
+                  type: INT
+                  constraints:
+                    nullable: false
+                  comment: "ID z tabeli training" 
+              - column:
+                  name: setnumber
+                  type: INT
+                  constraints:
+                    nullable: false
+                  comment: "Numer serii"
+              - column:
+                  name: countnumber
+                  type: INT
+                  constraints:
+                    nullable: false
+                  comment: "Liczba powtórzeń"
+              - column:
+                  name: weight
+                  type: float
+                  constraints:
+                    nullable: false
+                  comment: "Waga obciążenia"
+              - column:
+                  name: insstmp
+                  type: date
+                  constraints:
+                    nullable: false
+                  comment: "Data kiedy powstał wpis. Wrzucony trigger trg_insert_insstmp_users"
+              - addForeignKeyConstraint:
+                  baseTableName: series
+                  baseColumnNames: trainingid
+                  referencedTableName: training
+                  referencedColumnNames: id
+                  constraintName: fk_tra2ser
+              - addForeignKeyConstraint:
+                  baseTableName: series
+                  baseColumnNames: exerciseid
+                  referencedTableName: exercises
+                  referencedColumnNames: id
+                  constraintName: fk_ex2ser

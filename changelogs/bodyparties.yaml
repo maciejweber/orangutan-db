@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 25
+      author: kacper
+      changes:
+        - createTable:
+            tableName: bodyparties
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  comment: "ID, PK, dodany autoincrement" 
+              - column:
+                  name: group
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                  comment: "Nazwa partii mięśniowej" 

@@ -1,0 +1,70 @@
+databaseChangeLog:
+  - changeSet:
+      id: 26
+      author: kacper
+      changes:
+        - createTable:
+            tableName: exercises
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  comment: "ID, PK, dodany autoincrement"
+              - column:
+                  name: partiesid
+                  type: INT
+                  constraints:
+                    nullable: false
+                  comment: "ID z tablicy bodyparties, FK"     
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                  comment: "Nazwa partii mięśniowej" 
+              - column:
+                  name: image
+                  type: bytea
+                  constraints:
+                    nullable: true
+                  comment: "Zdjęcie ćwiczenia, typ bytea"
+              - column:
+                  name: hardrate
+                  type: char(1)
+                  constraints:
+                    nullable: true
+                  comment: "Trudność ćwiczenia" 
+              - column:
+                  name: description
+                  type: varchar(50)
+                  constraints:
+                    nullable: true
+                  comment: "Opis ćwiczenia"
+              - column:
+                  name: serieshint
+                  type: varchar(50)
+                  constraints:
+                    nullable: true
+                  comment: "Podpowiedź dot. ilości serii"
+              - column:
+                  name: counthint
+                  type: varchar(50)
+                  constraints:
+                    nullable: true
+                  comment: "Podpowiedź dot. powtórzeń"
+              - column:
+                  name: breakhint
+                  type: varchar(50)
+                  constraints:
+                    nullable: true
+                  comment: "Podpowiedź dot. przerw"
+              - addForeignKeyConstraint:
+                  baseTableName: exercises
+                  baseColumnNames: partiesid
+                  referencedTableName: bodyparties
+                  referencedColumnNames: id
+                  constraintName: fk_bp2ex

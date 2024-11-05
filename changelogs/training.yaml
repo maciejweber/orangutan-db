@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: 27
+      author: kacper
+      changes:
+        - createTable:
+            tableName: training
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  comment: "ID, PK, dodany autoincrement" 
+              - column:
+                  name: userid
+                  type: INT
+                  constraints:
+                    nullable: false
+                  comment: "ID z tablicy users, FK" 
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                  comment: "Nazwa treningu"
+              - addForeignKeyConstraint:
+                  baseTableName: training
+                  baseColumnNames: userid
+                  referencedTableName: users
+                  referencedColumnNames: id
+                  constraintName: fk_usr2tra
