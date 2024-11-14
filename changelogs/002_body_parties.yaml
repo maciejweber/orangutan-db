@@ -14,7 +14,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: group
+                  name: parties
                   type: varchar(50)
                   constraints:
                     nullable: false
