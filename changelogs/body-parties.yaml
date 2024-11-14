@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: 25
+      id: 6
       author: kacper
       changes:
         - createTable:
-            tableName: bodyparties
+            tableName: body_parties
             columns:
               - column:
                   name: id
@@ -13,10 +13,8 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
-                  comment: "ID, PK, dodany autoincrement" 
               - column:
                   name: group
                   type: varchar(50)
                   constraints:
                     nullable: false
-                  comment: "Nazwa partii mięśniowej" 
