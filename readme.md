@@ -1,5 +1,10 @@
 # Setup and Database Migration Instructions
 
+## Requirements
+
+- **Docker** and **Docker Compose**: For running the PostgreSQL database.
+- **Liquibase**: For managing database migrations.
+
 ## Step 1: Start the PostgreSQL Database with Docker Compose
 
 First, make sure you have Docker and Docker Compose installed. To start the PostgreSQL database, run the following command:
@@ -17,5 +22,5 @@ Once the PostgreSQL database is up and running, you can apply database migration
 To apply migrations, run the following command:
 
 ```bash
-liquibase --changeLogFile=changelog.yaml --url=jdbc:postgresql://localhost:5432/orangutan_database --username=orangutan_admin --password="G@V7xhkR*2Jz" update
+liquibase update
 ```
