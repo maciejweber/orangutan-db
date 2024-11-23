@@ -107,26 +107,3 @@ databaseChangeLog:
                       insstmp = EXCLUDED.insstmp;
               END;
               $$ LANGUAGE plpgsql;
-
-
-  - changeSet:
-      id: 15
-      author: kacper
-      changes:
-        - sql:
-            splitStatements: false
-            sql: |
-              CREATE EXTENSION IF NOT EXISTS pg_cron;
-
-  - changeSet:
-      id: 16
-      author: kacper
-      changes:
-        - sql:
-            splitStatements: false
-            sql: |
-              SELECT cron.schedule(
-                  'Transfer Series to Series History',  
-                  '0 * * * *',                          
-                  $$ CALL transfer_latest_data_to_series_history(); $$
-              );
