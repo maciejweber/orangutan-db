@@ -1,0 +1,109 @@
+databaseChangeLog:
+  - changeSet:
+      id: 12
+      author: kacper
+      runAlways: true
+      changes:
+        - createTable:
+            tableName: series_history
+            columns:
+              - column:
+                  name: userid
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: exerciseid
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: trainingid
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: setnumber
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: countnumber
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: weight
+                  type: FLOAT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: insstmp
+                  type: DATE
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: series_history
+            baseColumnNames: userid
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_usr2hser
+        - addForeignKeyConstraint:
+            baseTableName: series_history
+            baseColumnNames: trainingid
+            referencedTableName: training
+            referencedColumnNames: id
+            constraintName: fk_tra2hser
+        - addForeignKeyConstraint:
+            baseTableName: series_history
+            baseColumnNames: exerciseid
+            referencedTableName: exercises
+            referencedColumnNames: id
+            constraintName: fk_ex2hser
+
+  - changeSet:
+      id: 13
+      author: kacper
+      changes:
+        - sql:
+            sql: |
+              DROP TRIGGER IF EXISTS trg_insert_insstmp_series_history ON series_history;
+              CREATE TRIGGER trg_insert_insstmp_series_history
+              BEFORE INSERT ON series_history
+              FOR EACH ROW
+              EXECUTE FUNCTION insert_insstmp();
+              
+  - changeSet:
+      id: 14
+      author: kacper
+      changes:
+        - sql:
+            comment: "Create transfer_latest_data_to_series_history procedure"
+            splitStatements: false
+            sql: |
+              CREATE OR REPLACE FUNCTION transfer_latest_data_to_series_history()
+              RETURNS void AS $$
+              BEGIN
+                  DELETE FROM series_history
+                  USING (
+                      SELECT userid, exerciseid, trainingid, MAX(insstmp) AS latest_insstmp
+                      FROM series
+                      GROUP BY userid, exerciseid, trainingid
+                  ) AS latest_entries
+                  WHERE series_history.userid = latest_entries.userid
+                    AND series_history.exerciseid = latest_entries.exerciseid
+                    AND series_history.trainingid = latest_entries.trainingid
+                    AND series_history.insstmp < latest_entries.latest_insstmp;
+
+                  INSERT INTO series_history (userid, exerciseid, trainingid, setnumber, countnumber, weight, insstmp)
+                  SELECT DISTINCT ON (userid, exerciseid, trainingid)
+                      userid, exerciseid, trainingid, setnumber, countnumber, weight, insstmp
+                  FROM series
+                  ORDER BY userid, exerciseid, trainingid, insstmp DESC
+                  ON CONFLICT (userid, exerciseid, trainingid, setnumber)
+                  DO UPDATE SET
+                      countnumber = EXCLUDED.countnumber,
+                      weight = EXCLUDED.weight,
+                      insstmp = EXCLUDED.insstmp;
+              END;
+              $$ LANGUAGE plpgsql;

@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: 001_users.yaml
+  - include:
+      file: 002_body_parties.yaml
+  - include:
+      file: 003_exercises.yaml
+  - include:
+      file: 004_training.yaml
+  - include:
+      file: 005_training_exercises.yaml
+  - include:
+      file: 006_series.yaml
+  - include:
+      file: 007_series_history.yaml

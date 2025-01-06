@@ -28,6 +28,16 @@ databaseChangeLog:
                   type: INT
                   constraints:
                     nullable: false
+              - column:
+                  name: minsetnumber
+                  type: INT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: maxsetnumber
+                  type: INT
+                  constraints:
+                    nullable: true
         - addForeignKeyConstraint:
             baseTableName: training_exercises
             baseColumnNames: userid
