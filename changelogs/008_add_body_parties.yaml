@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: 15
+      author: kacper
+      changes:
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Klatka piersiowa"
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Plecy"
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Barki"
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Ramiona"
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Biceps"
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Triceps"
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Brzuch"
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Nogi"
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Uda"
+        - insert:
+            tableName: body_parties
+            columns:
+              - column:
+                  name: parties
+                  value: "Łydki"
