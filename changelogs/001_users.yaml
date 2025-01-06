@@ -52,7 +52,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: passwd
-                  type: varchar(30)
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:
@@ -62,12 +62,12 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: insstmp
-                  type: date
+                  type: timestamp
                   constraints:
                     nullable: false
               - column:
                   name: updstmp
-                  type: date
+                  type: timestamp
                   constraints:
                     nullable: false
 

@@ -39,7 +39,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: insstmp
-                  type: DATE
+                  type: timestamp
                   constraints:
                     nullable: false
         - addForeignKeyConstraint:
