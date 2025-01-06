@@ -1,0 +1,245 @@
+databaseChangeLog:
+  - changeSet:
+      id: 16
+      author: kacper
+      changes:
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 1
+              - column:
+                  name: name
+                  value: "Wyciskanie sztangi na ławce"
+              - column:
+                  name: hardrate
+                  value: "M"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na klatkę piersiową, wymaga ławki i sztangi."
+              - column:
+                  name: serieshint
+                  value: 4
+              - column:
+                  name: counthint
+                  value: 12
+              - column:
+                  name: breakhint
+                  value: 120
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 2
+              - column:
+                  name: name
+                  value: "Podciąganie na drążku"
+              - column:
+                  name: hardrate
+                  value: "H"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na plecy, wymaga drążka."
+              - column:
+                  name: serieshint
+                  value: 3
+              - column:
+                  name: counthint
+                  value: 10
+              - column:
+                  name: breakhint
+                  value: 120
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 3
+              - column:
+                  name: name
+                  value: "Unoszenie hantli bokiem"
+              - column:
+                  name: hardrate
+                  value: "L"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na barki, wymaga hantli."
+              - column:
+                  name: serieshint
+                  value: 3
+              - column:
+                  name: counthint
+                  value: 15
+              - column:
+                  name: breakhint
+                  value: 90
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 4
+              - column:
+                  name: name
+                  value: "Uginanie ramion ze sztangą"
+              - column:
+                  name: hardrate
+                  value: "M"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na ramiona, wymaga sztangi."
+              - column:
+                  name: serieshint
+                  value: 4
+              - column:
+                  name: counthint
+                  value: 12
+              - column:
+                  name: breakhint
+                  value: 90
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 5
+              - column:
+                  name: name
+                  value: "Uginanie ramion z hantlami"
+              - column:
+                  name: hardrate
+                  value: "L"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na biceps, wymaga hantli."
+              - column:
+                  name: serieshint
+                  value: 3
+              - column:
+                  name: counthint
+                  value: 15
+              - column:
+                  name: breakhint
+                  value: 90
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 6
+              - column:
+                  name: name
+                  value: "Prostowanie ramion na wyciągu"
+              - column:
+                  name: hardrate
+                  value: "M"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na triceps, wymaga wyciągu."
+              - column:
+                  name: serieshint
+                  value: 3
+              - column:
+                  name: counthint
+                  value: 12
+              - column:
+                  name: breakhint
+                  value: 90
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 7
+              - column:
+                  name: name
+                  value: "Plank"
+              - column:
+                  name: hardrate
+                  value: "M"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na brzuch, nie wymaga sprzętu."
+              - column:
+                  name: serieshint
+                  value: 3
+              - column:
+                  name: counthint
+                  value: 60
+              - column:
+                  name: breakhint
+                  value: 90
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 8
+              - column:
+                  name: name
+                  value: "Przysiady ze sztangą"
+              - column:
+                  name: hardrate
+                  value: "H"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na nogi, wymaga sztangi."
+              - column:
+                  name: serieshint
+                  value: 4
+              - column:
+                  name: counthint
+                  value: 12
+              - column:
+                  name: breakhint
+                  value: 180
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 9
+              - column:
+                  name: name
+                  value: "Wykroki z hantlami"
+              - column:
+                  name: hardrate
+                  value: "M"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na uda, wymaga hantli."
+              - column:
+                  name: serieshint
+                  value: 3
+              - column:
+                  name: counthint
+                  value: 12
+              - column:
+                  name: breakhint
+                  value: 90
+        - insert:
+            tableName: exercises
+            columns:
+              - column:
+                  name: partiesid
+                  value: 10
+              - column:
+                  name: name
+                  value: "Wspięcia na palce"
+              - column:
+                  name: hardrate
+                  value: "L"
+              - column:
+                  name: description
+                  value: "Ćwiczenie na łydki, nie wymaga sprzętu."
+              - column:
+                  name: serieshint
+                  value: 3
+              - column:
+                  name: counthint
+                  value: 15
+              - column:
+                  name: breakhint
+                  value: 90

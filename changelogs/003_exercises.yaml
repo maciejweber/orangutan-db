@@ -40,17 +40,17 @@ databaseChangeLog:
                     nullable: true
               - column:
                   name: serieshint
-                  type: varchar(50)
+                  type: INT
                   constraints:
                     nullable: true"
               - column:
                   name: counthint
-                  type: varchar(50)
+                  type: INT
                   constraints:
                     nullable: true
               - column:
                   name: breakhint
-                  type: varchar(50)
+                  type: INT
                   constraints:
                     nullable: true
         - addForeignKeyConstraint:
