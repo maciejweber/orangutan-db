@@ -1,0 +1,79 @@
+databaseChangeLog:
+- changeSet:
+      id: 10
+      author: kacper
+      changes:
+        - createTable:
+            tableName: series
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: userid
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: exerciseid
+                  type: INT
+                  constraints:
+                    nullable: false 
+              - column:
+                  name: trainingid
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: setnumber
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: countnumber
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: weight
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: insstmp
+                  type: timestamp
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: series
+            baseColumnNames: trainingid
+            referencedTableName: training
+            referencedColumnNames: id
+            constraintName: fk_tra2ser
+        - addForeignKeyConstraint:
+            baseTableName: series
+            baseColumnNames: exerciseid
+            referencedTableName: exercises
+            referencedColumnNames: id
+            constraintName: fk_ex2ser
+        - addForeignKeyConstraint:
+            baseTableName: series
+            baseColumnNames: userid
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_usr2ser
+- changeSet:
+      id: 11
+      author: kacper
+      changes:
+        - sql:
+            sql: |
+              DROP TRIGGER IF EXISTS trg_insert_insstmp_series ON series;
+              CREATE TRIGGER trg_insert_insstmp_series
+              BEFORE INSERT ON series
+              FOR EACH ROW
+              EXECUTE FUNCTION insert_insstmp();
