@@ -17,10 +17,10 @@ databaseChangeLog:
                   name: partiesid
                   type: INT
                   constraints:
-                    nullable: false    
+                    nullable: false
               - column:
                   name: name
-                  type: varchar(50)
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:
@@ -42,7 +42,7 @@ databaseChangeLog:
                   name: serieshint
                   type: INT
                   constraints:
-                    nullable: true"
+                    nullable: true
               - column:
                   name: counthint
                   type: INT

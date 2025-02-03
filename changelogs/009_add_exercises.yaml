@@ -11,13 +11,13 @@ databaseChangeLog:
                   value: 1
               - column:
                   name: name
-                  value: "Wyciskanie sztangi na ławce"
+                  value: "Wyciskanie sztangi"
               - column:
                   name: hardrate
                   value: "M"
               - column:
                   name: description
-                  value: "Ćwiczenie na klatkę piersiową, wymaga ławki i sztangi."
+                  value: "Ćwiczenie na klatkę"
               - column:
                   name: serieshint
                   value: 4
@@ -41,7 +41,7 @@ databaseChangeLog:
                   value: "H"
               - column:
                   name: description
-                  value: "Ćwiczenie na plecy, wymaga drążka."
+                  value: "Ćwiczenie na plecy"
               - column:
                   name: serieshint
                   value: 3
@@ -65,7 +65,7 @@ databaseChangeLog:
                   value: "L"
               - column:
                   name: description
-                  value: "Ćwiczenie na barki, wymaga hantli."
+                  value: "Ćwiczenie na barki"
               - column:
                   name: serieshint
                   value: 3
@@ -89,7 +89,7 @@ databaseChangeLog:
                   value: "M"
               - column:
                   name: description
-                  value: "Ćwiczenie na ramiona, wymaga sztangi."
+                  value: "Ćwiczenie na ramiona"
               - column:
                   name: serieshint
                   value: 4
@@ -113,7 +113,7 @@ databaseChangeLog:
                   value: "L"
               - column:
                   name: description
-                  value: "Ćwiczenie na biceps, wymaga hantli."
+                  value: "Ćwiczenie na biceps"
               - column:
                   name: serieshint
                   value: 3
@@ -137,7 +137,7 @@ databaseChangeLog:
                   value: "M"
               - column:
                   name: description
-                  value: "Ćwiczenie na triceps, wymaga wyciągu."
+                  value: "Ćwiczenie na triceps"
               - column:
                   name: serieshint
                   value: 3
@@ -161,7 +161,7 @@ databaseChangeLog:
                   value: "M"
               - column:
                   name: description
-                  value: "Ćwiczenie na brzuch, nie wymaga sprzętu."
+                  value: "Ćwiczenie na brzuch"
               - column:
                   name: serieshint
                   value: 3
@@ -185,7 +185,7 @@ databaseChangeLog:
                   value: "H"
               - column:
                   name: description
-                  value: "Ćwiczenie na nogi, wymaga sztangi."
+                  value: "Ćwiczenie na nogi"
               - column:
                   name: serieshint
                   value: 4
@@ -209,7 +209,7 @@ databaseChangeLog:
                   value: "M"
               - column:
                   name: description
-                  value: "Ćwiczenie na uda, wymaga hantli."
+                  value: "Ćwiczenie na uda"
               - column:
                   name: serieshint
                   value: 3
@@ -233,7 +233,7 @@ databaseChangeLog:
                   value: "L"
               - column:
                   name: description
-                  value: "Ćwiczenie na łydki, nie wymaga sprzętu."
+                  value: "Ćwiczenie na łydki"
               - column:
                   name: serieshint
                   value: 3

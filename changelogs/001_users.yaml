@@ -57,7 +57,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: is_active
-                  type: boolean  # Poprawiono literówkę
+                  type: boolean
                   constraints:
                     nullable: false
               - column:
