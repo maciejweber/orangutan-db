@@ -1,0 +1,102 @@
+databaseChangeLog:
+  - changeSet:
+      id: 19
+      author: maciej
+      changes:
+        - addColumn:
+            tableName: exercises
+            columns:
+              - column:
+                  name: position
+                  type: varchar(255)
+              - column:
+                  name: performing
+                  type: varchar(255)
+              - column:
+                  name: tips
+                  type: varchar(255)
+
+  - changeSet:
+      id: 20
+      author: maciej
+      changes:
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'wyciskanie-sztangi',
+                  position = 'Ćwiczenie głównie na mięśnie klatki piersiowej, angażujące także tricepsy.',
+                  performing = 'Wykonuj ruch płynnie, koncentrując się na kontroli ciężaru oraz pełnym zakresie ruchu.',
+                  tips = 'Utrzymuj stabilną postawę i pamiętaj o właściwym oddechu podczas wysiłku.'
+              WHERE name = 'Wyciskanie sztangi';
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'podciaganie-na-draczku',
+                  position = 'Ćwiczenie rozwijające mięśnie pleców i bicepsy, poprawiające siłę górnej partii ciała.',
+                  performing = 'Wciągaj ciało do góry, skupiając się na pracy mięśni pleców i kontrolowanym ruchu.',
+                  tips = 'Unikaj kołysania ciałem, wykonując ćwiczenie w równomiernym tempie.'
+              WHERE name = 'Podciąganie na drążku';
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'unoszenie-hantli-bokiem',
+                  position = 'Ćwiczenie ukierunkowane na mięśnie naramienne, podkreślające szerokość barków.',
+                  performing = 'Unoszenie hantli wykonuj w kontrolowany sposób, z lekkim zgięciem w łokciach.',
+                  tips = 'Dobierz odpowiedni ciężar, aby ruch był precyzyjny i nie narażał stawów.'
+              WHERE name = 'Unoszenie hantli bokiem';
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'uginanie-ramion-ze-sztanga',
+                  position = 'Klasyczne ćwiczenie na biceps, angażujące mięśnie ramion przy podnoszeniu ciężaru.',
+                  performing = 'Podnoś sztangę powoli, kontrolując ruch i unikając nadmiernego bujania ciałem.',
+                  tips = 'Skup się na pełnym zakresie ruchu i utrzymaniu stabilnej postawy przez cały czas.'
+              WHERE name = 'Uginanie ramion ze sztangą';
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'uginanie-ramion-z-hantlami',
+                  position = 'Alternatywna forma pracy na biceps, umożliwiająca niezależną pracę każdej ręki.',
+                  performing = 'Wykonuj ćwiczenie symetrycznie, zachowując stałe napięcie mięśni.',
+                  tips = 'Kontroluj każdy ruch, by maksymalnie zaangażować mięśnie i unikać kontuzji.'
+              WHERE name = 'Uginanie ramion z hantlami';
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'prostowanie-ramion-na-wyciagu',
+                  position = 'Ćwiczenie celujące w triceps, które pomaga w budowaniu siły ramion.',
+                  performing = 'Prostuj ramiona w sposób płynny, skupiając się na pracy mięśni tricepsa.',
+                  tips = 'Unikaj gwałtownych ruchów, dbając o stabilność i pełną kontrolę nad ciężarem.'
+              WHERE name = 'Prostowanie ramion na wyciągu';
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'plank',
+                  position = 'Ćwiczenie izometryczne, wzmacniające mięśnie brzucha oraz stabilizujące całe ciało.',
+                  performing = 'Utrzymuj ciało w linii prostej przez określony czas, angażując mięśnie głębokie.',
+                  tips = 'Dbaj o prawidłową postawę – biodra nie mogą opaść ani być uniesione zbyt wysoko.'
+              WHERE name = 'Plank';
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'przysiady-ze-sztanga',
+                  position = 'Ćwiczenie na nogi, angażujące mięśnie ud i pośladków oraz poprawiające stabilność.',
+                  performing = 'Wykonuj przysiady z pełnym zakresem ruchu, utrzymując prostą sylwetkę.',
+                  tips = 'Skup się na równomiernym rozkładzie ciężaru i unikaj przeciążania kolan.'
+              WHERE name = 'Przysiady ze sztangą';
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'wykroki-z-hantlami',
+                  position = 'Dynamiczne ćwiczenie na uda, rozwijające mięśnie czworogłowe i pośladkowe.',
+                  performing = 'Wykonuj naprzemienne wykroki, dbając o stabilność i prawidłowy krok.',
+                  tips = 'Kontroluj ruch, utrzymuj równowagę i wykonuj ćwiczenie w spokojnym tempie.'
+              WHERE name = 'Wykroki z hantlami';
+        - sql:
+            sql: |
+              UPDATE exercises
+              SET image = 'wspiecia-na-palce',
+                  position = 'Ćwiczenie na łydki, poprawiające siłę oraz wytrzymałość mięśni dolnych partii nóg.',
+                  performing = 'Podnoś się na palce w sposób kontrolowany, koncentrując się na pracy mięśni łydek.',
+                  tips = 'Wykonuj ruch powoli i precyzyjnie, dbając o równowagę oraz stabilność ciała.'
+              WHERE name = 'Wspięcia na palce';
