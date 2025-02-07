@@ -1,0 +1,73 @@
+databaseChangeLog:
+  - changeSet:
+      id: 17
+      author: maciej
+      changes:
+        - createTable:
+            tableName: training_sessions
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: userid
+                  type: INT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: trainingid
+                  type: INT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: start_time
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: end_time
+                  type: timestamp
+                  constraints:
+                    nullable: true
+
+        - addForeignKeyConstraint:
+            baseTableName: training_sessions
+            baseColumnNames: userid
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_usr2ts
+
+        - addForeignKeyConstraint:
+            baseTableName: training_sessions
+            baseColumnNames: trainingid
+            referencedTableName: training
+            referencedColumnNames: id
+            constraintName: fk_tra2ts
+
+  - changeSet:
+      id: 18
+      author: kacper
+      changes:
+        - addColumn:
+            tableName: series
+            columns:
+              - column:
+                  name: trainingsessionid
+                  type: INT
+                  constraints:
+                    nullable: true
+
+        - addForeignKeyConstraint:
+            baseTableName: series
+            baseColumnNames: trainingsessionid
+            referencedTableName: training_sessions
+            referencedColumnNames: id
+            constraintName: fk_ts2ser

@@ -2,7 +2,6 @@ databaseChangeLog:
   - changeSet:
       id: 12
       author: kacper
-      runAlways: true
       changes:
         - createTable:
             tableName: series_history
@@ -72,7 +71,7 @@ databaseChangeLog:
               BEFORE INSERT ON series_history
               FOR EACH ROW
               EXECUTE FUNCTION insert_insstmp();
-              
+
   - changeSet:
       id: 14
       author: kacper
